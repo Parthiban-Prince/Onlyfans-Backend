@@ -9,7 +9,7 @@ const app = express()
 
 
 app.use(cors({
-  origin: 'http://localhost:5173', // or '*' during dev
+  origin: 'https://onlyfans-smoky.vercel.app', // or '*' during dev
   credentials: true,
   allowedHeaders: ['Content-Type', 'Authorization']
 }));
