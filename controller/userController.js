@@ -21,8 +21,12 @@ export  async function userDetails(req,res){
 
 export  async function userDetailsPost(req,res){
 
+
+
+
  
-    const user = await userDetailsUpdateService(req.body)
+    const user = await userDetailsUpdateService(req)
+
 
     return res.status(200).json({
         message:"Recevied data",

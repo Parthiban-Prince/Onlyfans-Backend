@@ -1,11 +1,14 @@
-import {postService} from "../service/postService.js";
+import {postCreateService, postFindService,AllpostFindService} from '../service/postService.js'
 
+export async function postController(req,res) {
 
-export async function postController() {
 
     try{
 
-        const Post = await postService()
+        const Post = await postCreateService(req)
+
+
+
         return res.status(200).json({
             message:"success",
             data:Post
@@ -16,3 +19,53 @@ export async function postController() {
     }
     
 }
+
+export async function postFindcontroller(req,res) {
+
+    const id = req.user._id
+
+
+
+        try{
+
+        const Post = await postFindService(id)
+
+
+
+        return res.status(200).json({
+            message:"success",
+            data:Post
+        })
+
+    }catch(error){
+        console.log(error)
+    }
+    
+    
+}
+
+
+export async function AllpostFindcontroller(req,res) {
+
+ 
+
+        try{
+
+        const Post = await AllpostFindService()
+
+
+
+        return res.status(200).json({
+            message:"success",
+            data:Post
+        })
+
+    }catch(error){
+        console.log(error)
+    }
+    
+    
+}
+
+
+export default {postController,postFindcontroller,AllpostFindcontroller}

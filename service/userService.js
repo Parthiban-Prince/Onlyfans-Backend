@@ -13,13 +13,32 @@ export  async function userDetailsService(token){
 
 
 
-export  async function userDetailsUpdateService(user){
+export  async function userDetailsUpdateService(req){
 
-    console.log(user)
+    const authHeader = req.headers.authorization
 
-    const TokenDetails  = verifyToken(user.token)
+    const token = authHeader.startsWith('Bearer ') ? authHeader.split(' ')[1] : authHeader
 
-    const userDetails = await userDetailsUpdate(TokenDetails)
+
+    const TokenDetails  = verifyToken(token)
+
+
+  
+
+
+          const response = {
+        oldusername : TokenDetails.username,
+        username:req.body.username,
+        name:req.body.name,
+        Bio:req.body.Bio,
+        profilePhoto: req.files.profilePhoto?.[0]?.path || null,
+        coverPhoto: req.files.coverPhoto?.[0]?.path || null,
+          };
+        
+
+
+
+    const userDetails = await userDetailsUpdate(response)
 
 
     return userDetails

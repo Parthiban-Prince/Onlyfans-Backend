@@ -1,9 +1,10 @@
 import express from "express";
 import suggestController from "../controller/suggestController.js";
+import Authencation from '../utils/Authenication.js'
 
 export  const router = express.Router()
 
-router.get('/card',suggestController,(req,res)=>{
+router.get('/card',Authencation,suggestController,(req,res)=>{
     res.send("succes")
 })
 

@@ -44,31 +44,39 @@ export async function userDetailsDb(username){
     }
 }
 
-export async function userDetailsUpdate(token, coverphoto) {
+export async function userDetailsUpdate(userData) {
   try {
-    console.log("Received token:", token);
-    console.log("Received coverphoto:", coverphoto);
-
-    if (!token || !coverphoto) {
-      throw new Error("Token and coverphoto URL are required");
-    }
-
-    const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    const username = decoded.username;
+    const {
+      oldusername,
+      coverPhoto,
+      profilePhoto,
+      Bio,
+      name,
+      username
+    } = userData;
 
     const updatedUser = await userModel.findOneAndUpdate(
-      { username },
-      { $set: { coverPhoto } },
-      { new: true }
+      { username: oldusername }, // Assuming "oldusername" matches the current username in DB
+      {
+        $set: {
+          coverPhoto,
+          profilePhoto,
+          Bio,
+          name,
+          username
+        }
+      },
+      { new: true } // Return the updated document
     );
 
     return updatedUser;
 
   } catch (error) {
-    console.error("Error updating user coverphoto:", error.message);
+    console.error("Error updating user details:", error.message);
     return null;
   }
 }
+
 
 
 export default {

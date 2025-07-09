@@ -8,11 +8,14 @@ import cors from 'cors'
 const app = express()
 
 
-app.use(cors({
-  origin: 'https://onlyfans-smoky.vercel.app', // or '*' during dev
-  credentials: true,
-  allowedHeaders: ['Content-Type', 'Authorization']
-}));
+//app.use(cors({
+  //origin: 'https://onlyfans-smoky.vercel.app', // or '*' during dev
+  //credentials: true,
+  //allowedHeaders: ['Content-Type', 'Authorization']
+//}));
+
+app.use(cors())
+
 app.use(express.text())
 app.use(express.json())
 app.use(express.urlencoded())
