@@ -14,6 +14,12 @@ const PostSchema = new mongoose.Schema({
   images:{
       type:String
     },
+    media:{
+      type:String
+    },
+    thumbnail:{
+      type:String
+    },
 },{timestamps:true});
 
 

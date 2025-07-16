@@ -1,5 +1,5 @@
 import { verifyToken } from "../utils/jwtToken.js";
-import {userDetailsDb,userDetailsUpdate} from '../Repository/userDatabse.js'
+import {userDetailsDb,userDetailsUpdate,userDetailsDBbyName} from '../Repository/userDatabse.js'
 
 export  async function userDetailsService(token){
 
@@ -45,6 +45,18 @@ export  async function userDetailsUpdateService(req){
 
 }
 
-export default {userDetailsService,userDetailsUpdateService}
+
+
+export  async function publicService(name){
+
+
+
+    const userDetails = await userDetailsDBbyName(name)
+    return userDetails
+
+}
+
+
+export default {userDetailsService,userDetailsUpdateService,publicService}
 
 

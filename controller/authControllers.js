@@ -20,6 +20,10 @@ export async function signUpController (req,res){
     }
     catch(error){
         console.log("Not received" +error)
+        return res.json({
+            message:"Please fill form",
+            status:401
+        })
     }
 }
 
@@ -36,8 +40,12 @@ export async function signInController (req,res){
          })
 
     }
-    catch(error){
+        catch(error){
         console.log("Not received" +error)
+        return res.json({
+            message:"Invalid Email or Password",
+            status:401
+        })
     }
 }
 

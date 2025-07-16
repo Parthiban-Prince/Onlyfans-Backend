@@ -1,4 +1,4 @@
-import {userDetailsService,userDetailsUpdateService }from '../service/userService.js'
+import {userDetailsService,userDetailsUpdateService,publicService }from '../service/userService.js'
 
 export  async function userDetails(req,res){
 
@@ -35,5 +35,37 @@ export  async function userDetailsPost(req,res){
 
 }
 
-export default {userDetails,userDetailsPost }
+
+export  async function publicController(req,res){
+
+
+    const path  = req.path
+
+    
+
+    const name1 = path.startsWith('/') ? path.slice(1):path
+
+    const name = name1.toLowerCase()
+    console.log(name)
+
+
+ 
+    const user = await publicService(name)
+ 
+
+
+  return res.status(200).json({
+      message:"Recevied data",
+       data:user
+    })
+
+}
+
+
+
+
+
+
+
+export default {userDetails,userDetailsPost,publicController }
 

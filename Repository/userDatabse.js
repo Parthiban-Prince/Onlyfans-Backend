@@ -78,10 +78,26 @@ export async function userDetailsUpdate(userData) {
 }
 
 
+export async function userDetailsDBbyName(name){
+    try{
+
+
+        const user = await userModel.findOne({name})
+        console.log(user)
+
+        return user
+
+    }catch(error){
+        console.log(error)
+    }
+}
+
+
 
 export default {
     userDatabasecreate,
     userDatafind,
     userDetailsDb,
-    userDetailsUpdate
+    userDetailsUpdate,
+    userDetailsDBbyName
 }

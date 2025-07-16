@@ -14,6 +14,10 @@ const validate = (Schema)=>{
         }
         catch(error){
             console.log("error in zod validation" +error)
+            return res.json({
+                message:"validation error",
+                status:404
+            })
         }
     }
 

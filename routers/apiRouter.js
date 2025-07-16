@@ -4,6 +4,8 @@ import userHanlder from './userHandler.js'
 import card from './suggestcard.js'
 import postRouter from './postRouter.js'
 import allPosts from './allPosts.js'
+import Public from './Public.js'
+import myPost from './myPost.js'
 
 const router = express.Router()
 
@@ -16,6 +18,10 @@ router.use('/suggestion',card)
 router.use('/create',postRouter)
 
 router.use('/Post',allPosts)
+
+router.use('/Public',Public)
+
+router.use("/owner",myPost)
 
 
 export default router
