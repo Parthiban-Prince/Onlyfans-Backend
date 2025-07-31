@@ -16,5 +16,4 @@ router.get('/:Profile',Authencation,userDetails,(req,res)=>{
     res.status(200).json("Recevied")
 })
 
-
 export default router

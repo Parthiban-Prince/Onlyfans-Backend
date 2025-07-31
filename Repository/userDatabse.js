@@ -93,6 +93,23 @@ export async function userDetailsDBbyName(name){
 }
 
 
+export async function userDetailsForgot(email) {
+  try{
+    const user = await userModel.findOne({ email: email });
+
+    if (!user) {
+      throw new Error("User not found");
+    }
+
+
+    return user;
+  }catch (error) {
+    console.error("Error fetching user details:", error.message);
+    return null;
+  }
+}
+
+
 
 export default {
     userDatabasecreate,

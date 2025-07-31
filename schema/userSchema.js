@@ -30,6 +30,16 @@ const userSchema = mongoose.Schema({
     },
     Bio:{
         type:String,
+    },
+    images:{
+        type:mongoose.Schema.Types.Mixed,
+        default:0,
+        ref:"posts"
+    },
+    media:{
+        type:mongoose.Schema.Types.Mixed,
+        default:0,
+        ref:"posts"
     }
 },{timestamp:true})
 

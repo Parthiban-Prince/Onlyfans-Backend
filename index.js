@@ -3,9 +3,14 @@ import apiRouter from './routers/apiRouter.js'
 import {Port} from './config/serverConfig.js'
 import {DatabaseConnection} from './config/DatabaseServer.js'
 import cors from 'cors'
+import { socketConfig } from './config/SocketConfig.js'
+import http from 'http'
 
 
 const app = express()
+const server = http.createServer(app)
+socketConfig(server)
+
 
 
 //app.use(cors({

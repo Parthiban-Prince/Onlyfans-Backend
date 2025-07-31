@@ -1,5 +1,5 @@
-import { success } from "zod/v4"
-import { signUpService,signInService } from "../service/authService.js"
+import { date, success } from "zod/v4"
+import { signUpService,signInService,forgotPasswordService } from "../service/authService.js"
 
 
 export async function signUpController (req,res){
@@ -8,7 +8,6 @@ export async function signUpController (req,res){
 
         const userDetails = await signUpService(req.body)
 
-        console.log(userDetails)
 
         
          return res.json({
@@ -48,6 +47,28 @@ export async function signInController (req,res){
         })
     }
 }
+
+
+export async function forgotPasswordController(req, res) {
+    try {
+        const { email } = req.body;
+
+        const response = await forgotPasswordService(email);
+
+        return res.json({
+            message: "Forgot password request received",
+            status: 200,
+            data: response
+        });
+    } catch (error) {
+        console.log("Error in forgot password:", error);
+        return res.json({
+            message: "Error processing forgot password request",
+            status: 500
+        });
+    }
+}
+
 
 export default {
     signUpController,
