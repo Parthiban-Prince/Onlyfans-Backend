@@ -30,10 +30,7 @@ router.post('/:Posts',Authencation, upload.fields([
   res.send("Recevied")
 })
 
-router.get('/:Posts',Authencation,postFindcontroller,(req,res)=>{
-
-  res.send("Recevied")
-})
+router.get('/:Posts',Authencation,postFindcontroller)
 
 
 

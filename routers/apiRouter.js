@@ -6,6 +6,7 @@ import postRouter from './postRouter.js'
 import allPosts from './allPosts.js'
 import Public from './Public.js'
 import myPost from './myPost.js'
+import Bookmarks from './Bookmarks.js'
 
 const router = express.Router()
 
@@ -22,6 +23,8 @@ router.use('/Post',allPosts)
 router.use('/Public',Public)
 
 router.use("/owner",myPost)
+
+router.use('/Bookmarks',Bookmarks)
 
 
 export default router
