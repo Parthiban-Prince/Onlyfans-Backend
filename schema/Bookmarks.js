@@ -6,9 +6,9 @@ const BookMarkSchema = new mongoose.Schema({
     ref: 'User',
     required: true
   },
-  postId: {
+  posts: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'Post',
+    ref: 'posts',
     required: true
   },
   post: {

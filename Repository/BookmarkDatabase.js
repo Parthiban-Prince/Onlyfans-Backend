@@ -32,7 +32,7 @@ export async function getBookmarksDatabase(username) {
     const user = await UserModel.findOne({ username });
     if (!user) throw new Error("User not found");
 
-    const bookmarks = await BookMarkModel.find({ user: user._id }).populate("postId"); // optional populate
+    const bookmarks = await BookMarkModel.find({ user: user._id }).populate('user').populate('posts') // optional populate
 
     return bookmarks;
   } catch (error) {

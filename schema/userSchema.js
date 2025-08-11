@@ -24,9 +24,11 @@ const userSchema = mongoose.Schema({
     },
     coverPhoto:{
         type:String,
+        default:"https://res.cloudinary.com/dri7edc3h/image/upload/v1750312122/kayadu/jz20kkexqy0yp6emxlpi.jpg"
     },
     profilePhoto:{
         type:String,
+        default:"https://res.cloudinary.com/dri7edc3h/image/upload/v1750312122/kayadu/jz20kkexqy0yp6emxlpi.jpg"
     },
     Bio:{
         type:String,
