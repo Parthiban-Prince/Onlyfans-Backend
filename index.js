@@ -13,11 +13,7 @@ socketConfig(server)
 
 
 
-app.use(cors({
-  origin: 'https://onlyfans-smoky.vercel.app', // or '*' during dev
-  credentials: true,
-  allowedHeaders: ['Content-Type', 'Authorization']
-}));
+app.use(cors());
 
 app.use(cors())
 
